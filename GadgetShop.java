@@ -5,6 +5,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import java.util.ArrayList;
 
+// github test
 public class GadgetShop extends Application {
 // all the variables (refer back)
     private final TextField nameField = new TextField();
