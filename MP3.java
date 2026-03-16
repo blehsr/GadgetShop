@@ -4,7 +4,7 @@ public class MP3 extends Gadget {
         super(model, price, weight, size); 
         this.memory=memory;
     }
-    
+    // comment here to allow me to make changes to git rep
     public int getMemory() { return memory; }
     
     public void moreMemory(int amount) {
