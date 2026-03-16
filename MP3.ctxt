@@ -1,11 +1,13 @@
 #BlueJ class context
 comment0.target=MP3
-comment1.params=name\ memory
-comment1.target=MP3(java.lang.String,\ int)
-comment2.params=amount
-comment2.target=void\ moreMemory(int)
-comment3.params=
-comment3.target=java.lang.String\ toString()
+comment1.params=model\ memory\ price\ weight\ size
+comment1.target=MP3(java.lang.String,\ int,\ double,\ int,\ java.lang.String)
+comment2.params=
+comment2.target=int\ getMemory()
+comment3.params=amount
+comment3.target=void\ moreMemory(int)
 comment4.params=
-comment4.target=void\ display()
-numComments=5
+comment4.target=java.lang.String\ toString()
+comment5.params=
+comment5.target=void\ display()
+numComments=6

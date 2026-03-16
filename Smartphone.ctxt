@@ -1,7 +1,7 @@
 #BlueJ class context
 comment0.target=Smartphone
-comment1.params=name
-comment1.target=Smartphone(java.lang.String)
+comment1.params=model\ price\ weight\ size
+comment1.target=Smartphone(java.lang.String,\ double,\ int,\ java.lang.String)
 comment2.params=
 comment2.target=java.lang.String\ toString()
 numComments=3
