@@ -55,90 +55,94 @@ public class GadgetShop extends Application {
         
         Label priceLabel = new Label("Price (£):");
         priceLabel.setLayoutX(20);
-        priceLabel.setLayoutY(90);
+        priceLabel.setLayoutY(95);
         priceField.setLayoutX(140);
-        priceField.setLayoutY(90);
+        priceField.setLayoutY(95);
         
         Label weightLabel = new Label("Weight (g):");
         weightLabel.setLayoutX(20);
-        weightLabel.setLayoutY(120);
+        weightLabel.setLayoutY(130);
         weightField.setLayoutX(140);
-        weightField.setLayoutY(120);
+        weightField.setLayoutY(130);
         
         Label sizeLabel = new Label("Size:");
         sizeLabel.setLayoutX(20);
-        sizeLabel.setLayoutY(150);
+        sizeLabel.setLayoutY(165);
         sizeField.setLayoutX(140);
-        sizeField.setLayoutY(150);
+        sizeField.setLayoutY(165);
         
         // only for the smartphone
         Label creditLabel = new Label("Credit (mins):");
         creditLabel.setLayoutX(20);
-        creditLabel.setLayoutY(180);
+        creditLabel.setLayoutY(200);
         creditField.setLayoutX(140);
-        creditField.setLayoutY(180);
+        creditField.setLayoutY(200);
         
         Button addSmartphoneBtn = new Button("Add Smartphone");
         addSmartphoneBtn.setLayoutX(20);
-        addSmartphoneBtn.setLayoutY(220);
+        addSmartphoneBtn.setLayoutY(240);
         
         // only for the mp3
         Label memoryLabel = new Label("Memory (MB):");
         memoryLabel.setLayoutX(20);
-        memoryLabel.setLayoutY(180);
+        memoryLabel.setLayoutY(200);
         memoryField.setLayoutX(140);
-        memoryField.setLayoutY(180);
+        memoryField.setLayoutY(200);
         
         Button addMP3Btn = new Button("Add MP3");
         addMP3Btn.setLayoutX(20);
-        addMP3Btn.setLayoutY(220);
+        addMP3Btn.setLayoutY(240);
         
         // this where the user will make a call
-        Label callLabel = new Label("=== MAKE A CALL ===");
+        Label callLabel = new Label("MAKE A CALL");
         callLabel.setLayoutX(20);
-        callLabel.setLayoutY(270);
+        callLabel.setLayoutY(290);
         
         Label displayLabel = new Label("Display Number:");
         displayLabel.setLayoutX(20);
-        displayLabel.setLayoutY(300);
+        displayLabel.setLayoutY(325);
         displayNumberField.setLayoutX(140);
-        displayNumberField.setLayoutY(300);
+        displayNumberField.setLayoutY(325);
         
         Label phoneLabel = new Label("Phone Number:");
         phoneLabel.setLayoutX(20);
-        phoneLabel.setLayoutY(330);
+        phoneLabel.setLayoutY(360);
         phoneNumberField.setLayoutX(140);
-        phoneNumberField.setLayoutY(330);
+        phoneNumberField.setLayoutY(360);
+
+        Button addCreditBtn = new Button("Add Credit");
+        addCreditBtn.setLayoutX(20);
+        addCreditBtn.setLayoutY(480);
         
         Label durationLabel = new Label("Duration (mins):");
         durationLabel.setLayoutX(20);
-        durationLabel.setLayoutY(360);
+        durationLabel.setLayoutY(395);
         durationField.setLayoutX(140);
-        durationField.setLayoutY(360);
+        durationField.setLayoutY(395);
         
-        Button makeCallBtn = new Button("Make Call");
+        Button makeCallBtn = new Button("MAKE CALL");
         makeCallBtn.setLayoutX(20);
-        makeCallBtn.setLayoutY(400);
+        makeCallBtn.setLayoutY(435);
         
         // where the user will be able to download new music
-        Label downloadLabel = new Label("====== DOWNLOAD MUSIC ======");
-        downloadLabel.setLayoutX(250);
-        downloadLabel.setLayoutY(270);
+        Label downloadLabel = new Label("DOWNLOAD MUSIC");
+        downloadLabel.setLayoutX(20);
+        downloadLabel.setLayoutY(290);
         
         Label downloadSizeLabel = new Label("Download Size (MB):");
-        downloadSizeLabel.setLayoutX(250);
-        downloadSizeLabel.setLayoutY(300);
-        downloadSizeField.setLayoutX(400);
-        downloadSizeField.setLayoutY(300);
+        downloadSizeLabel.setLayoutX(20);
+        downloadSizeLabel.setLayoutY(325);
+        downloadSizeField.setLayoutX(140);
+        downloadSizeField.setLayoutY(325);
         
         Button downloadBtn = new Button("Download Music");
-        downloadBtn.setLayoutX(250);
-        downloadBtn.setLayoutY(340);
+        downloadBtn.setLayoutX(260);
+        downloadBtn.setLayoutY(395);
         
         // user can add memory
         Button addMemoryBtn = new Button("Add Memory");
-        addMemoryBtn.setLayoutX(250);
-        addMemoryBtn.setLayoutY(380);
+        addMemoryBtn.setLayoutX(20);
+        addMemoryBtn.setLayoutY(435);
         
         // any of the other buttons
         Button displayAllBtn = new Button("Display All");
@@ -155,8 +159,8 @@ public class GadgetShop extends Application {
         
         // log area
         logArea.setLayoutX(20);
-        logArea.setLayoutY(490);
-        logArea.setPrefSize(460, 150);
+        logArea.setLayoutY(560);
+        logArea.setPrefSize(460, 120);
         
         // this helps start with smartphone menu visible
         creditLabel.setVisible(true);
@@ -166,6 +170,21 @@ public class GadgetShop extends Application {
         memoryField.setVisible(false);
         addMP3Btn.setVisible(false);
         
+        callLabel.setVisible(true);
+        phoneLabel.setVisible(true);
+        phoneNumberField.setVisible(true);
+        durationLabel.setVisible(true);
+        durationField.setVisible(true);
+        makeCallBtn.setVisible(true);
+       
+        
+        downloadLabel.setVisible(false);
+        downloadSizeLabel.setVisible(false);
+        downloadSizeField.setVisible(false);
+        downloadBtn.setVisible(false);
+        moreMemoryField.setVisible(false);
+        addMemoryBtn.setVisible(false);
+
         // menu button actions
         smartphoneMenuBtn.setOnAction(e -> {
             creditLabel.setVisible(true);
@@ -177,6 +196,21 @@ public class GadgetShop extends Application {
             logArea.appendText("Switched to Smartphone Menu\n");
         });
         
+            callLabel.setVisible(true);
+            phoneLabel.setVisible(true);
+            phoneNumberField.setVisible(true);
+            durationLabel.setVisible(true);
+            durationField.setVisible(true);
+            makeCallBtn.setVisible(true);
+            addCreditBtn.setVisible(true);
+            
+            downloadLabel.setVisible(false);
+            downloadSizeLabel.setVisible(false);
+            downloadSizeField.setVisible(false);
+            downloadBtn.setVisible(false);
+            moreMemoryField.setVisible(false);
+            addMemoryBtn.setVisible(false);
+        
         mp3MenuBtn.setOnAction(e -> {
             creditLabel.setVisible(false);
             creditField.setVisible(false);
@@ -184,9 +218,29 @@ public class GadgetShop extends Application {
             memoryLabel.setVisible(true);
             memoryField.setVisible(true);
             addMP3Btn.setVisible(true);
+            
+            callLabel.setVisible(false);
+            displayLabel.setVisible(false);
+            displayNumberField.setVisible(false);
+            phoneLabel.setVisible(false);
+            phoneNumberField.setVisible(false);
+            durationLabel.setVisible(false);
+            durationField.setVisible(false);
+            makeCallBtn.setVisible(false);
+            addCreditBtn.setVisible(false);
+            
+            downloadLabel.setVisible(true);
+            downloadSizeLabel.setVisible(true);
+            downloadSizeField.setVisible(true);
+            downloadBtn.setVisible(true);
+            moreMemoryField.setVisible(true);
+            addMemoryBtn.setVisible(true);
+            
+            
             logArea.appendText("Switched to MP3 Menu\n");
         });
         
+
         // button actions
         addSmartphoneBtn.setOnAction(e -> addSmartphone());
         addMP3Btn.setOnAction(e -> addMP3());
@@ -350,16 +404,30 @@ public class GadgetShop extends Application {
         }
     }
     
-    private void displayAll() {
-        if (gadgets.isEmpty()) {
-            logArea.appendText("No gadgets to display\n");
-            return;
-        }
-        logArea.appendText("\n=== ALL GADGETS ===\n");
-        for (int i = 0; i < gadgets.size(); i++) {
-            logArea.appendText(i + ": " + gadgets.get(i).toString() + "\n");
-        }
+private void displayAll() {
+    if (gadgets.isEmpty()) {
+        logArea.appendText("No gadgets to display\n");
+        return;
     }
+    logArea.appendText("\n=== ALL GADGETS ===\n");
+    for (int i = 0; i < gadgets.size(); i++) {
+        Gadget g = gadgets.get(i);
+        logArea.appendText("Display Number: " + i + "\n");
+        logArea.appendText("Model: " + g.getModel() + "\n");
+        logArea.appendText("Price: £" + g.getPrice() + "\n");
+        logArea.appendText("Weight: " + g.getWeight() + "g\n");
+        logArea.appendText("Size: " + g.getSize() + "\n");
+        
+        if (g instanceof Smartphone) {
+            Smartphone s = (Smartphone) g;
+            logArea.appendText("Calling Credit: " + s.getCallingCredit() + " minutes\n");
+        } else if (g instanceof MP3) {
+            MP3 m = (MP3) g;
+            logArea.appendText("Memory: " + m.getMemory() + "MB\n");
+        }
+        logArea.appendText("------------------------\n");
+    }
+}
     
     private void clearAll() {
         modelField.clear();
