@@ -1,18 +1,26 @@
 public class MP3 extends Gadget {
+    // for storing how much memory the mp3 has 
+    
     private int memory;
-    public MP3(String model, int memory, double price, int weight, String size) { 
+    
+    // overall constructors for mp3
+    public MP3(String model,double price, int memory, int weight, String size) { 
         super(model, price, weight, size); 
-        this.memory=memory;
+        this.memory=memory; // set the memory value
     }
+    
+    // returns current memory amount 
     public int getMemory() { return memory; }
     
     public void moreMemory(int amount) {
         if (amount > 0) {
-            memory += amount;
+            memory += amount; // add to existing memory
             System.out.println("Added" + amount + "MB memory. Total memory:" + memory + "MB");
         } else { System.out.println("Error: Please enter a positive amount of memory.");
-        }
+        } // user gets a warning if they don't enter correct num.
     }
+    
+    // uses up memory space
     public void downloadMusic(int downloadSize) {
         if (downloadSize <= 0) {
             System.out.println("Error: Download size must be positive.");
@@ -20,7 +28,7 @@ public class MP3 extends Gadget {
         }
         
         if (memory >= downloadSize) {
-            memory -= downloadSize;
+            memory -= downloadSize; // can't download nothing or negative size
             System.out.println("Downloaded music of size " + downloadSize + "MB.");
             System.out.println("Remaining memory: " + memory + "MB.");
         } else {
@@ -46,6 +54,8 @@ public class MP3 extends Gadget {
                "', memory=" + memory + "MB}"; 
     }
     
+    
+    // mp3 details printed so console sees
     @Override 
     public void display() { 
         System.out.println("MP3 Player");

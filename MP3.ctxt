@@ -1,7 +1,7 @@
 #BlueJ class context
 comment0.target=MP3
-comment1.params=model\ memory\ price\ weight\ size
-comment1.target=MP3(java.lang.String,\ int,\ double,\ int,\ java.lang.String)
+comment1.params=model\ price\ memory\ weight\ size
+comment1.target=MP3(java.lang.String,\ double,\ int,\ int,\ java.lang.String)
 comment2.params=
 comment2.target=int\ getMemory()
 comment3.params=amount
