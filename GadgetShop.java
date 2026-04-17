@@ -193,31 +193,35 @@ public class GadgetShop extends Application {
             memoryLabel.setVisible(false);
             memoryField.setVisible(false);
             addMP3Btn.setVisible(false);
-            logArea.appendText("Switched to Smartphone Menu\n");
-        });
-        
-            callLabel.setVisible(true);
-            phoneLabel.setVisible(true);
-            phoneNumberField.setVisible(true);
-            durationLabel.setVisible(true);
-            durationField.setVisible(true);
-            makeCallBtn.setVisible(true);
-            addCreditBtn.setVisible(true);
             
             downloadLabel.setVisible(false);
             downloadSizeLabel.setVisible(false);
             downloadSizeField.setVisible(false);
             downloadBtn.setVisible(false);
-            moreMemoryField.setVisible(false);
             addMemoryBtn.setVisible(false);
-        
+            moreMemoryField.setVisible(false);
+            
+            callLabel.setVisible(true);
+            displayLabel.setVisible(true);
+            displayNumberField.setVisible(true);
+            phoneLabel.setVisible(true);
+            phoneNumberField.setVisible(true);
+            durationLabel.setVisible(true);
+            durationField.setVisible(true);
+            makeCallBtn.setVisible(true);
+            
+            logArea.appendText("Switched to Smartphone Menu\n");
+        });
+            
+
         mp3MenuBtn.setOnAction(e -> {
-            creditLabel.setVisible(false);
-            creditField.setVisible(false);
-            addSmartphoneBtn.setVisible(false);
+
             memoryLabel.setVisible(true);
             memoryField.setVisible(true);
             addMP3Btn.setVisible(true);
+            creditLabel.setVisible(false);
+            creditField.setVisible(false);
+            addSmartphoneBtn.setVisible(false);
             
             callLabel.setVisible(false);
             displayLabel.setVisible(false);
