@@ -131,11 +131,15 @@ public class GadgetShop extends Application {
         
         Label downloadSizeLabel = new Label("Download Size (MB):");
         downloadSizeLabel.setLayoutX(20);
-        downloadSizeLabel.setLayoutY(325);
+        downloadSizeLabel.setLayoutY(325);                                
         downloadSizeField.setLayoutX(140);
         downloadSizeField.setLayoutY(325);
         
-        Button downloadBtn = new Button("DOWNLOAD MUSIC");
+        Button deleteMusicBtn = new Button("Delete Music");
+        deleteMusicBtn.setLayoutX(320);
+        deleteMusicBtn.setLayoutY(370);
+        
+        Button downloadBtn = new Button("Download Music");
         downloadBtn.setLayoutX(20);
         downloadBtn.setLayoutY(370);
         
@@ -152,7 +156,7 @@ public class GadgetShop extends Application {
         Button clearBtn = new Button("Clear Fields");
         clearBtn.setLayoutX(140);
         clearBtn.setLayoutY(490);
-        
+
         Button exitBtn = new Button("Exit");
         exitBtn.setLayoutX(260);
         exitBtn.setLayoutY(490);
@@ -181,11 +185,12 @@ public class GadgetShop extends Application {
         downloadLabel.setVisible(false);
         downloadSizeLabel.setVisible(false);
         downloadSizeField.setVisible(false);
-        downloadBtn.setVisible(false);
+        deleteMusicBtn.setVisible(false);
         moreMemoryField.setVisible(false);
         addMemoryBtn.setVisible(false);
+        downloadBtn.setVisible(false);
 
-        // menu button actions
+        // menu button actions when switching
         smartphoneMenuBtn.setOnAction(e -> {
             creditLabel.setVisible(true);
             creditField.setVisible(true);
@@ -197,9 +202,10 @@ public class GadgetShop extends Application {
             downloadLabel.setVisible(false);
             downloadSizeLabel.setVisible(false);
             downloadSizeField.setVisible(false);
-            downloadBtn.setVisible(false);
+            deleteMusicBtn.setVisible(false);
             addMemoryBtn.setVisible(false);
             moreMemoryField.setVisible(false);
+            downloadBtn.setVisible(false); 
             
             callLabel.setVisible(true);
             displayLabel.setVisible(true);
@@ -236,9 +242,10 @@ public class GadgetShop extends Application {
             downloadLabel.setVisible(true);
             downloadSizeLabel.setVisible(true);
             downloadSizeField.setVisible(true);
-            downloadBtn.setVisible(true);
+            deleteMusicBtn.setVisible(true);
             moreMemoryField.setVisible(true);
             addMemoryBtn.setVisible(true);
+            downloadBtn.setVisible(true);
             
             
             logArea.appendText("Switched to MP3 Menu\n");
@@ -249,13 +256,14 @@ public class GadgetShop extends Application {
         addSmartphoneBtn.setOnAction(e -> addSmartphone());
         addMP3Btn.setOnAction(e -> addMP3());
         makeCallBtn.setOnAction(e -> makeCall());
-        downloadBtn.setOnAction(e -> downloadMusic());
+        deleteMusicBtn.setOnAction(e -> downloadMusic());
         addMemoryBtn.setOnAction(e -> addMoreMemory());
         displayAllBtn.setOnAction(e -> displayAll());
         clearBtn.setOnAction(e -> clearAll());
         exitBtn.setOnAction(e -> System.exit(0));
+        downloadBtn.setOnAction(e -> downloadMusic());
         
-        // adds everything to root
+     // adds everything to root
         root.getChildren().addAll(
             smartphoneMenuBtn, mp3MenuBtn,
             modelLabel, modelField,
@@ -266,7 +274,7 @@ public class GadgetShop extends Application {
             memoryLabel, memoryField, addMP3Btn,
             callLabel, displayLabel, displayNumberField, phoneLabel, phoneNumberField,
             durationLabel, durationField, makeCallBtn,
-            downloadLabel, downloadSizeLabel, downloadSizeField, downloadBtn,
+            downloadLabel, downloadSizeLabel, downloadSizeField, downloadBtn, deleteMusicBtn,
             addMemoryBtn, displayAllBtn, clearBtn, exitBtn,
             logArea
         );
@@ -294,6 +302,7 @@ public class GadgetShop extends Application {
         }
         return displayNumber;
     }
+    
     private void handleMoreMemory() {
         int displayNum = getDisplayNumber();
         if (displayNum == -1) return;
@@ -322,25 +331,26 @@ public class GadgetShop extends Application {
     }
     
     private void downloadMusic() {
-    try {
-        int index = Integer.parseInt(displayNumberField.getText());
-        if (index >= 0 && index < gadgets.size()) {
-            MP3 mp3 = (MP3) gadgets.get(index);
-            int size = Integer.parseInt(downloadSizeField.getText());
-            mp3.downloadMusic(size);
-            logArea.appendText("Downloaded " + size + "MB\n");
-        } else {
-            showError("Invalid Number", "Enter 0-" + (gadgets.size()-1));
-        }
-    } catch (ClassCastException e) {
-        showError("Error", "Not an MP3 player");
-    } catch (Exception e) {
-        showError("Error", "Check your inputs");
-    }
-}
-    
-        private void addSmartphone() {
         try {
+            int index = Integer.parseInt(displayNumberField.getText());
+            if (index >= 0 && index < gadgets.size()) {
+                MP3 mp3 = (MP3) gadgets.get(index);
+                int size = Integer.parseInt(downloadSizeField.getText());
+                mp3.downloadMusic(size);
+                logArea.appendText("Downloaded " + size + "MB\n");
+            } else {
+                showError("Invalid Number", "Enter 0-" + (gadgets.size()-1));
+            }
+        } catch (ClassCastException e) {
+            showError("Error", "Not an MP3 player");
+        } catch (Exception e) {
+            showError("Error", "Check your inputs");
+        }
+
+    }
+    
+    private void addSmartphone() {
+         try {
             String model = modelField.getText();
             double price = Double.parseDouble(priceField.getText());
             int weight = Integer.parseInt(weightField.getText());
@@ -351,6 +361,7 @@ public class GadgetShop extends Application {
             gadgets.add(s);
             logArea.appendText("Added Smartphone: " + model + "\n");
             // clearAll();
+        
         } catch (Exception e) {
             showError("Input Error", "Check your inputs");
         }
@@ -361,8 +372,8 @@ public class GadgetShop extends Application {
             String model = modelField.getText();
             double price = Double.parseDouble(priceField.getText());
             int weight = Integer.parseInt(weightField.getText());
-            int size = Integer.parseInt(sizeField.getText());
-            String memory = memoryField.getText();
+            String size = (sizeField.getText());
+            int memory = Integer.parseInt(memoryField.getText());
             
             MP3 m = new MP3(model, price, weight, size, memory);
             gadgets.add(m);

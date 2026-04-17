@@ -4,7 +4,7 @@ public class MP3 extends Gadget {
     private int memory;
     
     // overall constructors for mp3
-    public MP3(String model,double price, int memory, int weight, String size) { 
+    public MP3(String model,double price, int weight, String size, int memory) { 
         super(model, price, weight, size); 
         this.memory=memory; // set the memory value
     }
