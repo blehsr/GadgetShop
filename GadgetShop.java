@@ -120,7 +120,7 @@ public class GadgetShop extends Application {
         durationField.setLayoutX(140);
         durationField.setLayoutY(395);
         
-        Button makeCallBtn = new Button("MAKE CALL");
+        Button makeCallBtn = new Button("MAKE A CALL");
         makeCallBtn.setLayoutX(20);
         makeCallBtn.setLayoutY(435);
         
@@ -135,27 +135,27 @@ public class GadgetShop extends Application {
         downloadSizeField.setLayoutX(140);
         downloadSizeField.setLayoutY(325);
         
-        Button downloadBtn = new Button("Download Music");
-        downloadBtn.setLayoutX(260);
-        downloadBtn.setLayoutY(395);
+        Button downloadBtn = new Button("DOWNLOAD MUSIC");
+        downloadBtn.setLayoutX(20);
+        downloadBtn.setLayoutY(370);
         
         // user can add memory
         Button addMemoryBtn = new Button("Add Memory");
-        addMemoryBtn.setLayoutX(20);
-        addMemoryBtn.setLayoutY(435);
+        addMemoryBtn.setLayoutX(170);
+        addMemoryBtn.setLayoutY(370);
         
         // any of the other buttons
         Button displayAllBtn = new Button("Display All");
         displayAllBtn.setLayoutX(20);
-        displayAllBtn.setLayoutY(450);
+        displayAllBtn.setLayoutY(490);
         
         Button clearBtn = new Button("Clear Fields");
         clearBtn.setLayoutX(140);
-        clearBtn.setLayoutY(450);
+        clearBtn.setLayoutY(490);
         
         Button exitBtn = new Button("Exit");
         exitBtn.setLayoutX(260);
-        exitBtn.setLayoutY(450);
+        exitBtn.setLayoutY(490);
         
         // log area
         logArea.setLayoutX(20);
@@ -350,7 +350,7 @@ public class GadgetShop extends Application {
             Smartphone s = new Smartphone(model, price, weight, size, credit);
             gadgets.add(s);
             logArea.appendText("Added Smartphone: " + model + "\n");
-            clearAll();
+            // clearAll();
         } catch (Exception e) {
             showError("Input Error", "Check your inputs");
         }
@@ -367,7 +367,7 @@ public class GadgetShop extends Application {
             MP3 m = new MP3(model, price, weight, size, memory);
             gadgets.add(m);
             logArea.appendText("Added MP3: " + model + "\n");
-            clearAll();
+            // clearAll();
         } catch (Exception e) {
             showError("Input Error", "Check your inputs");
         }
